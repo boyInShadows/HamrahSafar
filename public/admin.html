@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#07564d">
+  <title>پنل مدیریت | همراه سفر</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin-body">
+
+<!-- ورود -->
+<main class="login-view" id="login-view" hidden>
+  <form class="login-card booking-form" id="login-form">
+    <a class="brand" href="index.html"><span class="brand-mark">هـ</span><span><b>همراه سفر</b><small>پنل مدیریت</small></span></a>
+    <h1>ورود مدیر</h1>
+    <label>نام کاربری<input name="username" required autocomplete="username" dir="ltr" class="ltr-input"></label>
+    <label>رمز عبور<input name="password" type="password" required autocomplete="current-password" dir="ltr" class="ltr-input"></label>
+    <p class="form-error" id="login-error" role="alert" hidden></p>
+    <button class="btn btn-primary" type="submit">ورود</button>
+    <a class="text-link center-link" href="index.html">← بازگشت به سایت</a>
+  </form>
+</main>
+
+<!-- داشبورد -->
+<div id="dash-view" hidden>
+  <header class="site-header admin-header">
+    <a class="brand" href="index.html"><span class="brand-mark">هـ</span><span><b>همراه سفر</b><small>پنل مدیریت</small></span></a>
+    <div class="admin-user">
+      <span class="admin-tag" id="admin-name"></span>
+      <a class="btn btn-outline" href="office.html">پنل عملیات</a>
+      <a class="btn btn-outline" href="index.html">مشاهده سایت</a>
+      <button class="btn btn-outline" id="settings-btn" type="button">تنظیمات تماس</button>
+      <button class="btn btn-outline" id="pw-btn" type="button">تغییر رمز</button>
+      <button class="btn btn-outline" id="logout-btn" type="button">خروج</button>
+    </div>
+  </header>
+
+  <main class="admin-wrap">
+    <div class="section-heading">
+      <div><span class="eyebrow">مدیریت سامانه</span><h1>داشبورد مدیریت</h1><p>داده‌ها در پایگاه داده سرور ذخیره می‌شوند.</p></div>
+      <div class="admin-actions">
+        <button class="btn btn-outline" id="export-csv" type="button">⇩ خروجی CSV رزروها</button>
+        <button class="btn btn-primary" id="add-trip" type="button">＋ افزودن سفر</button>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <article class="stat"><span>سفرهای فعال</span><strong id="stat-trips">۰</strong><small>قابل مشاهده در سایت</small></article>
+      <article class="stat"><span>رزروهای فعال</span><strong id="stat-bookings">۰</strong><small id="stat-pending">۰ مورد در انتظار پرداخت</small></article>
+      <article class="stat"><span>صندلی رزروشده</span><strong id="stat-seats">۰</strong><small id="stat-capacity">از ۰ ظرفیت</small></article>
+      <article class="stat"><span>مبلغ رزروهای تأییدشده</span><strong id="stat-revenue">۰</strong><small>تومان</small></article>
+    </div>
+
+    <div class="admin-tabs" role="tablist" aria-label="بخش‌های پنل">
+      <button role="tab" class="active" data-tab="trips" type="button">سفرها <em id="cnt-trips">۰</em></button>
+      <button role="tab" data-tab="bookings" type="button">رزروها <em id="cnt-bookings">۰</em></button>
+      <button role="tab" data-tab="messages" type="button">پیام‌ها <em id="cnt-messages">۰</em></button>
+    </div>
+
+    <section class="admin-panel" data-panel="trips">
+      <div class="panel-heading"><div><h2>مدیریت سفرها</h2><p>افزودن، ویرایش، فعال/غیرفعال‌سازی یا حذف سفر</p></div></div>
+      <div class="table-wrap"><table class="resp-table"><thead><tr><th>عنوان سفر</th><th>نوع</th><th>حمل‌ونقل</th><th>تاریخ حرکت</th><th>قیمت (تومان)</th><th>ظرفیت</th><th>رزرو شده</th><th>عملیات</th></tr></thead><tbody id="admin-trip-rows"></tbody></table></div>
+    </section>
+
+    <section class="admin-panel" data-panel="bookings" hidden>
+      <div class="panel-heading row">
+        <div><h2>درخواست‌های رزرو</h2><p>وضعیت هر رزرو را تغییر دهید؛ ظرفیت سفر خودکار به‌روز می‌شود.</p></div>
+        <div class="panel-tools"><input type="search" id="booking-search" placeholder="جستجوی نام، موبایل یا کد…" aria-label="جستجوی رزرو"><select id="booking-filter" aria-label="فیلتر وضعیت"><option value="">همه وضعیت‌ها</option></select></div>
+      </div>
+      <div class="table-wrap"><table class="resp-table"><thead><tr><th>کد</th><th>مشتری</th><th>موبایل</th><th>سفر</th><th>نفرات</th><th>مبلغ (تومان)</th><th>تاریخ ثبت</th><th>وضعیت</th></tr></thead><tbody id="admin-booking-rows"></tbody></table></div>
+    </section>
+
+    <section class="admin-panel" data-panel="messages" hidden>
+      <div class="panel-heading"><div><h2>درخواست‌های مشاوره</h2><p>پیام‌های ثبت‌شده از فرم تماس سایت</p></div></div>
+      <div class="table-wrap"><table class="resp-table"><thead><tr><th>نام</th><th>موبایل</th><th>پیام</th><th>تاریخ</th><th>عملیات</th></tr></thead><tbody id="admin-message-rows"></tbody></table></div>
+    </section>
+  </main>
+</div>
+
+<!-- فرم سفر -->
+<div class="modal-backdrop" id="admin-modal" hidden>
+  <section class="modal admin-modal" role="dialog" aria-modal="true" aria-labelledby="trip-form-title">
+    <button class="modal-close" id="admin-modal-close" type="button" aria-label="بستن">×</button>
+    <h2 id="trip-form-title">افزودن سفر</h2>
+    <form id="trip-form" class="booking-form" novalidate>
+      <input type="hidden" name="id">
+      <label>عنوان سفر<input name="title" required maxlength="120" placeholder="مثلاً طبیعت‌گردی ماسال"></label>
+      <div class="form-grid">
+        <label>دسته سفر<select name="category"><option value="nature">طبیعت‌گردی</option><option value="pilgrimage">زیارتی</option><option value="recreation">تفریحی و فرهنگی</option></select></label>
+        <label>وسیله نقلیه<select name="transport"><option>اتوبوس</option><option>خودروی همکار</option></select></label>
+        <label>مقصد<input name="destination" required maxlength="120" placeholder="مثلاً ماسال، گیلان"></label>
+        <label>تاریخ حرکت (شمسی)<input name="date" data-jdate placeholder="مثلاً ۱۴۰۵/۰۸/۰۷"></label>
+        <label>قیمت هر نفر (تومان)<input name="price" inputmode="numeric" required placeholder="مثلاً ۱٬۸۵۰٬۰۰۰" autocomplete="off"></label>
+        <label>ظرفیت نفرات<input name="capacity" inputmode="numeric" required placeholder="مثلاً ۳۰" autocomplete="off"></label>
+        <label>مدت سفر<input name="duration" maxlength="40" placeholder="مثلاً ۳ روز و ۲ شب"></label>
+        <label>بهترین زمان سفر<input name="bestSeason" maxlength="80" placeholder="مثلاً بهار و پاییز"></label>
+      </div>
+      <label>شعار کوتاه (برای کارت تور ویژه)<input name="tagline" maxlength="120"></label>
+      <label>توضیحات سفر<textarea name="description" rows="3" maxlength="1500"></textarea></label>
+      <label>جاذبه‌ها (هر مورد در یک خط)<textarea name="highlights" rows="3"></textarea></label>
+      <label>برنامه سفر (هر خط: عنوان روز | توضیح)<textarea name="itinerary" rows="3" placeholder="روز اول | حرکت و استقرار"></textarea></label>
+      <label>خدمات شامل (هر مورد در یک خط)<textarea name="includes" rows="3"></textarea></label>
+      <div class="image-field">
+        <label>آدرس یا فایل تصویر<input name="image" placeholder="https://… یا بارگذاری فایل" dir="ltr" class="ltr-input"></label>
+        <label class="btn btn-outline upload-btn">بارگذاری تصویر<input type="file" id="image-file" accept="image/jpeg,image/png,image/webp" hidden></label>
+        <div class="image-preview" id="image-preview" hidden></div>
+      </div>
+      <label class="check-row"><input type="checkbox" name="featured"> نمایش در بخش «تورهای ویژه» (حداکثر ۳ مورد)</label>
+      <label class="check-row"><input type="checkbox" name="active" checked> سفر فعال و قابل رزرو باشد</label>
+      <p class="form-error" id="trip-error" role="alert" hidden></p>
+      <button class="btn btn-primary" type="submit">ذخیره سفر</button>
+    </form>
+  </section>
+</div>
+
+<!-- تغییر رمز -->
+<div class="modal-backdrop" id="pw-modal" hidden>
+  <section class="modal modal-sm" role="dialog" aria-modal="true" aria-labelledby="pw-title">
+    <button class="modal-close" id="pw-close" type="button" aria-label="بستن">×</button>
+    <h2 id="pw-title">تغییر رمز عبور</h2>
+    <form id="pw-form" class="booking-form">
+      <label>رمز فعلی<input name="current" type="password" required autocomplete="current-password" dir="ltr" class="ltr-input"></label>
+      <label>رمز جدید (حداقل ۸ نویسه)<input name="next" type="password" required minlength="8" autocomplete="new-password" dir="ltr" class="ltr-input"></label>
+      <p class="form-error" id="pw-error" role="alert" hidden></p>
+      <button class="btn btn-primary" type="submit">ذخیره رمز جدید</button>
+    </form>
+  </section>
+</div>
+
+<!-- تنظیمات تماس -->
+<div class="modal-backdrop" id="settings-modal" hidden>
+  <section class="modal modal-sm" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <button class="modal-close" id="settings-close" type="button" aria-label="بستن">×</button>
+    <h2 id="settings-title">تنظیمات تماس سایت</h2>
+    <p class="muted-text">این اطلاعات در بالای صفحه و فوتر سایت نمایش داده می‌شوند. فیلد خالی نمایش داده نمی‌شود.</p>
+    <form id="settings-form" class="booking-form">
+      <label>شماره تماس<input name="phone" maxlength="40" dir="ltr" class="ltr-input" inputmode="tel"></label>
+      <label>ایمیل<input name="email" type="email" maxlength="100" dir="ltr" class="ltr-input"></label>
+      <label>نشانی<input name="address" maxlength="200"></label>
+      <label>ساعات پاسخ‌گویی<input name="hours" maxlength="200" placeholder="مثلاً هر روز ۹ تا ۲۱"></label>
+      <label>اینستاگرام (نام کاربری)<input name="instagram" maxlength="60" dir="ltr" class="ltr-input"></label>
+      <p class="form-error" id="settings-error" role="alert" hidden></p>
+      <button class="btn btn-primary" type="submit">ذخیره تنظیمات</button>
+    </form>
+  </section>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/jalali.js"></script>
+<script src="js/data.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "hamrah-safar",
+  "version": "8.0.0",
+  "description": "سایت و پنل مدیریت آژانس سفر داخلی همراه سفر (Express + libSQL)",
+  "private": true,
+  "type": "commonjs",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js",
+    "check": "node scripts/check.js",
+    "build": "npm run check && node scripts/build.js",
+    "test": "node --test test/api.test.js test/office.test.js test/deployment.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.18.0",
+    "express": "^5.3.0"
+  }
+}

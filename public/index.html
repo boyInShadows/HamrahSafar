@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>همراه سفر | تورهای مشهد، شمال و اصفهان</title>
+  <meta name="description" content="رزرو آنلاین تورهای داخلی: زیارت مشهد، طبیعت‌گردی شمال و گشت تاریخی اصفهان با اتوبوس و خودروهای همکار.">
+  <meta name="theme-color" content="#07564d">
+  <meta property="og:title" content="همراه سفر | سفر خوب، خاطره ماندگار">
+  <meta property="og:description" content="تورهای ویژه مشهد، شمال و اصفهان؛ قیمت و ظرفیت شفاف، رزرو آنلاین آسان.">
+  <meta property="og:image" content="assets/img/isfahan.jpg">
+  <meta name="color-scheme" content="light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#trips">پرش به فهرست سفرها</a>
+
+<div class="topline">
+  <div>پشتیبانی ۲۴ ساعته <span>•</span> همراه مطمئن سفرهای داخلی</div>
+  <div><span id="topline-phone" hidden></span><a href="#contact">مشاوره سفر</a><span class="sep"> | </span><a href="admin.html">ورود مدیریت</a></div>
+</div>
+
+<header class="site-header" id="site-header">
+  <a class="brand" href="index.html"><span class="brand-mark">هـ</span><span><b>همراه سفر</b><small>سفر خوب، خاطره ماندگار</small></span></a>
+  <nav id="main-nav" aria-label="منوی اصلی">
+    <div class="nav-head"><span>منو</span><button class="nav-close" id="nav-close" type="button" aria-label="بستن منو">×</button></div>
+    <a href="#home">خانه</a>
+    <a href="#tours">تورهای ویژه</a>
+    <a href="#trips">همه سفرها</a>
+    <a href="#how">راهنمای رزرو</a>
+    <a href="#faq">سوالات متداول</a>
+    <a href="#contact">تماس با ما</a>
+    <div class="nav-extra">
+      <button class="btn btn-outline" type="button" data-track>پیگیری رزرو</button>
+      <a class="btn btn-outline" href="admin.html">پنل مدیریت</a>
+    </div>
+  </nav>
+  <div class="header-actions">
+    <button class="btn btn-outline" type="button" data-track>پیگیری رزرو</button>
+    <a class="btn btn-outline" href="admin.html">پنل مدیریت</a>
+  </div>
+  <button class="menu-toggle" id="menu-toggle" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+</header>
+<div class="nav-backdrop" id="nav-backdrop" hidden></div>
+
+<main>
+  <!-- قهرمان با اسلایدر سه مقصد -->
+  <section class="hero" id="home">
+    <div class="hero-slides" aria-hidden="true">
+      <div class="hero-slide active" style="background-image:url('assets/img/north.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('assets/img/mashhad.jpg');background-position:50% 30%"></div>
+      <div class="hero-slide" style="background-image:url('assets/img/isfahan.jpg')"></div>
+    </div>
+    <div class="hero-content">
+      <span class="eyebrow">سفرهای داخلی، ساده و مطمئن</span>
+      <h1>راهی شو؛ <em>خاطره بساز.</em></h1>
+      <p>از زیارت مشهد و طبیعت سبز شمال تا گشت تاریخی اصفهان؛ سفر بعدی‌ات را پیدا کن و آنلاین رزرو کن.</p>
+      <form class="hero-search" id="hero-search" role="search">
+        <label>مقصد سفر
+          <select id="hero-destination">
+            <option value="">همه مقصدها</option>
+            <option>مشهد</option><option>شمال</option><option>اصفهان</option><option>قم</option>
+          </select>
+        </label>
+        <label>نوع سفر
+          <select id="hero-category">
+            <option value="all">همه دسته‌ها</option>
+            <option value="nature">طبیعت‌گردی</option>
+            <option value="pilgrimage">زیارتی</option>
+            <option value="recreation">تفریحی و فرهنگی</option>
+          </select>
+        </label>
+        <label>حرکت از تاریخ<input id="hero-date" data-jdate data-min="today" placeholder="مثلاً ۱۴۰۵/۰۸/۰۷"></label>
+        <button class="btn btn-primary" type="submit">جستجوی سفر <span>⌕</span></button>
+      </form>
+      <div class="hero-actions"><span class="hero-note">رزرو آنلاین · اتوبوس و خودروهای همکار</span></div>
+    </div>
+    <div class="hero-card" id="hero-card">
+      <div class="hero-card-icon">✦</div>
+      <span>مقصد پیشنهادی</span>
+      <strong id="hero-card-title">شمال، سبز و آرام</strong>
+      <a href="#tours" id="hero-card-link">دیدن برنامه تور <span>←</span></a>
+      <div class="hero-dots" role="tablist" aria-label="تصاویر مقصدها">
+        <button class="active" role="tab" aria-label="شمال" data-slide="0"></button>
+        <button role="tab" aria-label="مشهد" data-slide="1"></button>
+        <button role="tab" aria-label="اصفهان" data-slide="2"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-row">
+    <div><b>✦</b><span>سفرهای برنامه‌ریزی‌شده</span></div>
+    <div><b>⌁</b><span>ظرفیت و قیمت شفاف</span></div>
+    <div><b>✓</b><span>رزرو آنلاین آسان</span></div>
+    <div><b>♡</b><span>پشتیبانی همراه شما</span></div>
+  </section>
+
+  <!-- تورهای ویژه -->
+  <section class="section" id="tours">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">مقصدهای محبوب</span>
+        <h2>معرفی تورهای ویژه</h2>
+        <p>سه مقصد اصلی ما؛ برنامه سفر، خدمات و قیمت هر تور را ببین و رزرو کن.</p>
+      </div>
+      <a class="text-link" href="#trips">همه سفرها <span>←</span></a>
+    </div>
+    <div class="tour-grid" id="tour-grid"></div>
+  </section>
+
+  <section class="category-strip">
+    <a href="#trips" data-cat="nature"><span class="cat-icon nature-icon">❋</span><span><b>طبیعت‌گردی</b><small>جنگل، کوه و هوای تازه</small></span><i>←</i></a>
+    <a href="#trips" data-cat="pilgrimage"><span class="cat-icon faith-icon">✦</span><span><b>سفرهای زیارتی</b><small>سفری آرام و خاطره‌انگیز</small></span><i>←</i></a>
+    <a href="#trips" data-cat="recreation"><span class="cat-icon fun-icon">✧</span><span><b>تفریحی و فرهنگی</b><small>کشف تجربه‌های تازه</small></span><i>←</i></a>
+  </section>
+
+  <!-- همه سفرها -->
+  <section class="section" id="trips">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">انتخاب با توست</span>
+        <h2>سفرهای پیشِ رو</h2>
+        <p>سفر مناسب خودت را پیدا کن؛ جزئیات را ببین و درخواست رزرو را ثبت کن.</p>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="filters" role="group" aria-label="فیلتر نوع سفر">
+        <button class="filter active" data-filter="all">همه سفرها</button>
+        <button class="filter" data-filter="nature">طبیعت‌گردی</button>
+        <button class="filter" data-filter="pilgrimage">زیارتی</button>
+        <button class="filter" data-filter="recreation">تفریحی</button>
+        <button class="filter" data-filter="fav">♥ علاقه‌مندی‌ها</button>
+      </div>
+      <div class="tools">
+        <input type="search" id="trip-search" placeholder="جستجوی مقصد یا عنوان…" aria-label="جستجوی سفر">
+        <select id="trip-sort" aria-label="مرتب‌سازی">
+          <option value="date">نزدیک‌ترین تاریخ</option>
+          <option value="price-asc">ارزان‌ترین</option>
+          <option value="price-desc">گران‌ترین</option>
+        </select>
+      </div>
+    </div>
+    <p class="result-count" id="result-count" aria-live="polite"></p>
+    <div class="trip-grid" id="trip-grid"></div>
+  </section>
+
+  <!-- چرا ما -->
+  <section class="why-section">
+    <div class="section-heading center">
+      <div>
+        <span class="eyebrow">چرا همراه سفر؟</span>
+        <h2>سفری که از قبل برنامه دارد</h2>
+      </div>
+    </div>
+    <div class="why-grid">
+      <article><span>◷</span><h3>زمان‌بندی مشخص</h3><p>برنامه هر روز سفر، قبل از رزرو در دسترس توست.</p></article>
+      <article><span>⌁</span><h3>قیمت و ظرفیت شفاف</h3><p>قیمت هر نفر و ظرفیت باقی‌مانده را همان لحظه می‌بینی.</p></article>
+      <article><span>♧</span><h3>حمل‌ونقل متنوع</h3><p>اتوبوس برای گروه‌های بزرگ و خودروهای همکار برای سفرهای کوچک.</p></article>
+      <article><span>✓</span><h3>همراهی سرپرست</h3><p>سرپرست یا راهنمای گروه در طول مسیر همراه شماست.</p></article>
+      <article><span>◇</span><h3>پرداخت امن</h3><p>در نسخه عملیاتی، پرداخت از طریق درگاه تأییدشده انجام می‌شود.</p></article>
+      <article><span>♡</span><h3>پشتیبانی قبل و حین سفر</h3><p>برای هر سؤالی کنارت هستیم.</p></article>
+    </div>
+  </section>
+
+  <section class="how-section" id="how">
+    <div class="section-heading"><div><span class="eyebrow">سه قدم تا سفر</span><h2>رزرو، بدون دردسر</h2></div></div>
+    <div class="steps">
+      <article><span>۰۱</span><h3>سفر را انتخاب کن</h3><p>تاریخ، مقصد، قیمت و ظرفیت را بررسی کن.</p></article>
+      <article><span>۰۲</span><h3>اطلاعات را ثبت کن</h3><p>تعداد مسافران و اطلاعات تماس را وارد کن.</p></article>
+      <article><span>۰۳</span><h3>رزرو و پرداخت</h3><p>در نسخه عملیاتی، پرداخت از طریق درگاه تأییدشده انجام می‌شود.</p></article>
+    </div>
+  </section>
+
+  <!-- سوالات متداول -->
+  <section class="section faq-section" id="faq">
+    <div class="section-heading center"><div><span class="eyebrow">پاسخ سریع</span><h2>سوالات متداول</h2></div></div>
+    <div class="faq">
+      <details><summary>چطور سفر را رزرو کنم؟</summary><p>سفر مورد نظر را انتخاب کنید، روی «جزئیات و رزرو» بزنید و نام، شماره موبایل و تعداد مسافران را وارد کنید.</p></details>
+      <details><summary>پرداخت چگونه انجام می‌شود؟</summary><p>در حال حاضر پس از ثبت درخواست، همکاران ما برای هماهنگی و پرداخت با شما تماس می‌گیرند. پرداخت آنلاین پس از اتصال درگاه تأییدشده فعال می‌شود.</p></details>
+      <details><summary>شرایط لغو یا تغییر رزرو چیست؟</summary><p>شرایط لغو برای هر سفر جداگانه اعلام می‌شود. برای اطلاع دقیق، پیش از رزرو با پشتیبانی تماس بگیرید.</p></details>
+      <details><summary>برای سفر چه مدارکی لازم است؟</summary><p>داشتن کارت ملی یا شناسنامه معتبر برای همه مسافران توصیه می‌شود. جزئیات هر سفر هنگام هماهنگی اعلام می‌شود.</p></details>
+      <details><summary>تفاوت اتوبوس و خودروی همکار چیست؟</summary><p>اتوبوس برای سفرهای گروهی و طولانی‌تر است؛ خودروهای همکار برای سفرهای کوچک‌تر و یک‌روزه با ظرفیت محدود.</p></details>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="cta-text">
+      <span class="eyebrow">سوالی داری؟</span>
+      <h2>برای انتخاب سفر کمکت می‌کنیم.</h2>
+      <p>شماره‌ات را بگذار تا مشاور سفر با تو تماس بگیرد.</p>
+    </div>
+    <form class="contact-form" id="contact-form" novalidate>
+      <input name="name" placeholder="نام و نام خانوادگی" required minlength="3" autocomplete="name" aria-label="نام و نام خانوادگی">
+      <input name="phone" placeholder="شماره موبایل (۰۹۱۲۳۴۵۶۷۸۹)" required inputmode="tel" dir="ltr" autocomplete="tel" maxlength="20" aria-label="شماره موبایل">
+      <textarea name="message" rows="2" placeholder="پیام (اختیاری)" aria-label="پیام"></textarea>
+      <button class="btn btn-light" type="submit">درخواست مشاوره</button>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-about">
+      <a class="brand footer-brand" href="#home"><span class="brand-mark">هـ</span><span><b>همراه سفر</b><small>سفر خوب، خاطره ماندگار</small></span></a>
+      <p>سفرهای داخلی با اتوبوس و خودروهای همکار؛ برنامه‌ریزی‌شده، شفاف و قابل اعتماد.</p>
+    </div>
+    <div><h4>دسترسی سریع</h4><a href="#tours">تورهای ویژه</a><a href="#trips">همه سفرها</a><a href="#how">راهنمای رزرو</a><a href="#faq">سوالات متداول</a></div>
+    <div><h4>مقصدها</h4><a href="#tours" data-dest="مشهد">تور مشهد</a><a href="#tours" data-dest="شمال">تور شمال</a><a href="#tours" data-dest="اصفهان">تور اصفهان</a><a href="#trips" data-dest="قم">تور قم</a></div>
+    <div id="footer-contact"><h4>ارتباط با ما</h4><a href="#contact">ثبت درخواست مشاوره</a><button class="link-btn" type="button" data-track>پیگیری رزرو</button><a href="admin.html">ورود مدیریت</a></div>
+  </div>
+  <div class="footer-bottom"><small>© تمامی حقوق محفوظ است.</small><small>پرداخت آنلاین هنوز فعال نیست.</small></div>
+</footer>
+
+<button class="to-top" id="to-top" aria-label="بازگشت به بالا" hidden>↑</button>
+
+<div class="modal-backdrop" id="trip-modal" hidden>
+  <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="بستن">×</button>
+    <div id="modal-content"></div>
+  </section>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/jalali.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

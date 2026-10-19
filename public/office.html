@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#07564d">
+  <title>پنل عملیات | همراه سفر</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin-body">
+
+<main class="login-view" id="login-view" hidden>
+  <form class="login-card booking-form" id="login-form">
+    <a class="brand" href="index.html"><span class="brand-mark">هـ</span><span><b>همراه سفر</b><small>پنل عملیات</small></span></a>
+    <h1>ورود به پنل عملیات</h1>
+    <p class="muted-text">مدیران، کارکنان و نمایندگان از همین‌جا وارد می‌شوند.</p>
+    <label>نام کاربری<input name="username" required autocomplete="username" dir="ltr" class="ltr-input"></label>
+    <label>رمز عبور<input name="password" type="password" required autocomplete="current-password" dir="ltr" class="ltr-input"></label>
+    <p class="form-error" id="login-error" role="alert" hidden></p>
+    <button class="btn btn-primary" type="submit">ورود</button>
+    <a class="text-link center-link" href="index.html">← بازگشت به سایت</a>
+  </form>
+</main>
+
+<div id="dash-view" hidden>
+  <header class="site-header admin-header">
+    <a class="brand" href="index.html"><span class="brand-mark">هـ</span><span><b>همراه سفر</b><small>پنل عملیات</small></span></a>
+    <div class="admin-user">
+      <span class="admin-tag" id="who"></span>
+      <a class="btn btn-outline" id="to-trips" href="admin.html" hidden>مدیریت سفرها</a>
+      <button class="btn btn-outline" id="pw-btn" type="button">تغییر رمز</button>
+      <button class="btn btn-outline" id="logout-btn" type="button">خروج</button>
+    </div>
+  </header>
+  <main class="admin-wrap">
+    <div class="admin-tabs" id="tabs" role="tablist" aria-label="بخش‌های پنل"></div>
+    <section class="admin-panel office-panel" id="panel" aria-live="polite"></section>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="dlg" hidden>
+  <section class="modal admin-modal" role="dialog" aria-modal="true" aria-labelledby="dlg-title">
+    <button class="modal-close" data-close type="button" aria-label="بستن">×</button>
+    <h2 id="dlg-title"></h2>
+    <div id="dlg-body"></div>
+  </section>
+</div>
+<div class="modal-backdrop" id="dlg2" hidden>
+  <section class="modal modal-sm" role="dialog" aria-modal="true" aria-labelledby="dlg2-title">
+    <button class="modal-close" data-close type="button" aria-label="بستن">×</button>
+    <h2 id="dlg2-title"></h2>
+    <div id="dlg2-body"></div>
+  </section>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/jalali.js"></script>
+<script src="js/data.js"></script>
+<script src="js/office.js"></script>
+<script src="js/office2.js"></script>
+<script src="js/office-boot.js"></script>
+</body>
+</html>

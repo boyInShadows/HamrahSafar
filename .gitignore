@@ -1,0 +1,39 @@
+# Dependencies and local caches
+node_modules/
+.npm-cache/
+.npm/
+.cache/
+.netlify/
+.codebase-memory/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Runtime data and generated output
+/data/
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+/dist/
+/coverage/
+/.tmp/
+/tmp/
+*.log
+*.tsbuildinfo
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+
+# Keep project notes local; publish only README Markdown files
+*.[mM][dD]
+![rR][eE][aA][dD][mM][eE].[mM][dD]
