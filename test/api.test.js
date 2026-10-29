@@ -4,6 +4,7 @@ const { test, before, after } = require('node:test');
 const assert = require('node:assert/strict');
 const { spawn } = require('node:child_process');
 const { once } = require('node:events');
+const { gzipSync } = require('node:zlib');
 const fs = require('node:fs'), path = require('node:path');
 
 const PORT = 3900 + Math.floor(Math.random() * 90), BASE = `http://127.0.0.1:${PORT}`;
@@ -99,4 +100,19 @@ test('login accepts the configured frontend origin and rejects other origins', a
   const headers = { Cookie: login.headers.get('set-cookie').split(';')[0], Origin: 'https://hamrah.example' };
   assert.equal((await fetch(BASE + '/api/admin/me', { headers })).status, 200);
   assert.equal((await fetch(BASE + '/api/admin/logout', { method: 'POST', headers })).status, 200);
+});
+
+test('compressed JSON with trailing bytes cannot crash the API', async () => {
+  // The decoder can finish before trailing HTTP bytes arrive (GHSA-27r3-jxmh-p828).
+  const body = Buffer.concat([gzipSync('{}'), Buffer.from([0]), Buffer.alloc(100 * 1024, 0x58)]);
+  const response = await fetch(BASE + '/api/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Content-Encoding': 'gzip' },
+    body
+  });
+  assert.equal(response.status, 400);
+  await response.arrayBuffer();
+  await new Promise(resolve => setTimeout(resolve, 100));
+  assert.equal((await fetch(BASE + '/api/trips')).status, 200);
+  assert.equal(proc.exitCode, null);
 });

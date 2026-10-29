@@ -1,0 +1,31 @@
+{
+  "runtime": "Node 24.11.1 / npm 11.6.2",
+  "base_revision": "6a985930c5aa",
+  "scope": "isolated worktree; fixture databases; log SMS; internal sandbox payments",
+  "results": [
+    {
+      "command": "npm run check",
+      "exit_code": 0,
+      "seconds": 1.07,
+      "output": "\n> hamrah-safar@8.0.0 check\n> node scripts/check.js\n\nJavaScript syntax checked: 26 files. This is not TypeScript type checking.\n"
+    },
+    {
+      "command": "npm test",
+      "exit_code": 0,
+      "seconds": 2.09,
+      "output": "\n> hamrah-safar@8.0.0 test\n> node --test test/api.test.js test/office.test.js test/deployment.test.js\n\n✔ trips are public and seeded with future dates (667.1016ms)\n✔ admin endpoints require login (73.028ms)\n✔ booking validates input, computes price on the server and tracks by ref+phone (39.1263ms)\n✔ capacity cannot be oversold and cancelling frees seats (58.5915ms)\n✔ trip validation, featured limit, settings and messages (14.3125ms)\n✔ static files are served and path traversal is blocked (8.623ms)\n✔ login accepts the configured frontend origin and rejects other origins (36.7444ms)\n✔ compressed JSON with trailing bytes cannot crash the API (110.3133ms)\n✔ Netlify build requires a safe backend origin and publishes only frontend files (264.2432ms)\n✔ office endpoints need login and roles limit access (829.6307ms)\n✔ agent: own panel, scoped bookings and commission (147.2361ms)\n✔ customers (CRM): auto-created from bookings, search, notes, follow-ups (36.1338ms)\n✔ installment plan, payments, auto-confirm, receipts and SMS log (63.3579ms)\n✔ online payment via sandbox gateway; failure then retry (97.1973ms)\n✔ choosing a payment method later from tracking page (29.3476ms)\n✔ cancellation computes penalty by policy, refunds the rest, records debt (58.3537ms)\n✔ accounting: overdue fees, penalties, expenses, delays, debts and summary (151.0393ms)\n✔ reports aggregate sales, agents, customers and staff (3.4367ms)\n✔ transports, payment methods, config, SMS templates, reminders and system info (142.019ms)\n✔ reminders send once for departures and due installments (87.7066ms)\n✔ deactivated users are logged out and cannot log in (63.3518ms)\nℹ tests 21\nℹ suites 0\nℹ pass 21\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1795.8992\n"
+    },
+    {
+      "command": "npm run build",
+      "exit_code": 0,
+      "seconds": 1.33,
+      "output": "\n> hamrah-safar@8.0.0 build\n> npm run check && node scripts/build.js\n\n\n> hamrah-safar@8.0.0 check\n> node scripts/check.js\n\nJavaScript syntax checked: 26 files. This is not TypeScript type checking.\nStatic preview only: set BACKEND_URL when building for Netlify to enable the API and uploads.\nFrontend built in dist/.\n"
+    },
+    {
+      "command": "npm audit --json",
+      "exit_code": 0,
+      "seconds": 1.21,
+      "output": "{\n  \"auditReportVersion\": 2,\n  \"vulnerabilities\": {},\n  \"metadata\": {\n    \"vulnerabilities\": {\n      \"info\": 0,\n      \"low\": 0,\n      \"moderate\": 0,\n      \"high\": 0,\n      \"critical\": 0,\n      \"total\": 0\n    },\n    \"dependencies\": {\n      \"prod\": 79,\n      \"dev\": 0,\n      \"optional\": 9,\n      \"peer\": 0,\n      \"peerOptional\": 0,\n      \"total\": 87\n    }\n  }\n}\n"
+    }
+  ]
+}
