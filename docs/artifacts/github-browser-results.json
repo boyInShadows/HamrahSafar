@@ -1,0 +1,25 @@
+{
+  "runtime": "Chromium/Playwright; local Express/libSQL fixtures",
+  "storefront": {
+    "status": 200,
+    "rtl": true,
+    "desktop": 1440,
+    "mobile": 360,
+    "no_horizontal_overflow": true
+  },
+  "booking": {
+    "server_price_verified": true,
+    "sandbox_failure_and_retry": true,
+    "confirmed": true,
+    "balance": 0
+  },
+  "office": {
+    "form_login": true,
+    "synthetic_booking_visible": true
+  },
+  "page_errors": [],
+  "limits": [
+    "No real SMS/payment service contacted.",
+    "Representative flows only; no full accessibility/security audit."
+  ]
+}
